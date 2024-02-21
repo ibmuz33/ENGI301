@@ -4,7 +4,7 @@
 Simple Calculator
 --------------------------------------------------------------------------
 License:   
-Copyright 2024 - <NAME>
+Copyright 2024 - Ibrahim Muzammil (im33@rice.edu)
 
 Redistribution and use in source and binary forms, with or without 
 modification, are permitted provided that the following conditions are met:
@@ -56,6 +56,11 @@ Error conditions:
 # NOTE - Hint:  Look at  https://docs.python.org/3/library/operator.html
 
 import operator
+import sys
+
+
+if sys.version[0] == "2":
+    input = raw_input
 
 # ------------------------------------------------------------------------
 # Constants
@@ -73,7 +78,11 @@ operators = {
     "+" : operator.add,
     "-" : operator.sub,
     "*" : operator.mul,
-    "/" : operator.truediv
+    "/" : operator.truediv,
+    ">>": operator.rshift,
+    "<<": operator.lshift,
+    "%" : operator.mod,
+    "**": operator.pow
 }
 
 
