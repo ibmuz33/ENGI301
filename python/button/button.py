@@ -3,7 +3,7 @@
 Button Driver
 --------------------------------------------------------------------------
 License:   
-Copyright 2021-2024 - <Your Name>
+Copyright 2021-2024 - Ibrahim Muzammil (im33@rice.edu)
 
 Redistribution and use in source and binary forms, with or without 
 modification, are permitted provided that the following conditions are met:
@@ -157,7 +157,7 @@ class Button():
         # Initialize Button
         # HW#4 TODO: (one line of code)
         #   Remove "pass" and use the Adafruit_BBIO.GPIO library to set up the button
-        pass
+        GPIO.setup("P2_2", GPIO.IN)
 
     # End def
 
@@ -171,8 +171,12 @@ class Button():
         # HW#4 TODO: (one line of code)
         #   Remove "pass" and return the comparison of input value of the GPIO pin of 
         #   the buton (i.e. self.pin) to the "pressed value" of the class 
-        pass
-
+        if GPIO.input("P2_2") is True:
+            return True
+ 
+        elif GPIO.input("P2_2") is False:
+            return False
+        
     # End def
 
 
@@ -199,7 +203,7 @@ class Button():
         #   of the class (i.e. we are executing the while loop while the 
         #   button is not being pressed)
         #
-        while(False):
+        while(GPIO.input("P2_2") == False):
         
             if self.unpressed_callback is not None:
                 self.unpressed_callback_value = self.unpressed_callback()
@@ -222,7 +226,7 @@ class Button():
         #   of the class (i.e. we are executing the while loop while the 
         #   button is being pressed)
         #
-        while(False):
+        while(GPIO.input("P2_2") == True):
         
             if self.pressed_callback is not None:
                 self.pressed_callback_value = self.pressed_callback()
