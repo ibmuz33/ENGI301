@@ -6,6 +6,7 @@ import busio
 import adafruit_ds3231
 import servo as SERVO
 import button as BUTTON
+import threaded_button as THREADED_BUTTON
 
 # i2c = board.I2C()  # uses board.SCL and board.SDA
 i2c = busio.I2C(board.SCL_2, board.SDA_2) 
@@ -31,15 +32,13 @@ lcd = characterlcd.Character_LCD_Mono(
 )
 
 
-servo          = SERVO.Servo("P1_36", default_position=100)
-SERVO_LOCK         = 100     # Fully anti-clockwise
-SERVO_UNLOCK       = 0       # Fully clockwise
+servo          = SERVO.Servo("P1_36", default_position=0)
 
-buttonR="P1_36"
-buttonG="P1_34"
-buttonB="P1_32"
-buttonY="P1_30"
-
+buttonR         = THREADED_BUTTON.ThreadedButton("P2_35")
+buttonG         = THREADED_BUTTON.ThreadedButton("P2_33")
+buttonB         = THREADED_BUTTON.ThreadedButton("P2_31")
+buttonY        = THREADED_BUTTON.ThreadedButton("P2_29")
+x = 0
 # pylint: disable-msg=using-constant-test
 if False:  # change to True if you want to set the time!
     #                     year, mon, date, hour, min, sec, wday, yday, isdst
@@ -50,9 +49,9 @@ if False:  # change to True if you want to set the time!
     rtc.datetime = t
     print()
 # pylint: enable-msg=using-constant-test
-
+buttonR.start()
 # Main loop:
-while True:
+while x == 0:
     t = rtc.datetime
     # print(t)     # uncomment for debugging
     print(
@@ -67,10 +66,17 @@ while True:
     lcd.cursor = True
     lcd.blink = True
     lcd.cursor_position(0, 0)
-    # Wait 5s
+    # Wait
     servo.turn(0)
-    time.sleep(5)
+    time.sleep(2)
     servo.turn(100)
-    time.sleep(5)
-    lcd.clear()
+    time.sleep(2)
+    button_press_time = buttonR.get_last_press_duration()
+    print(button_press_time)
+    if (button_press_time > 0.1):
+                    lcd.message = "Cancel"
+                    time.sleep(5)
+                    x = 1
+                    break
+    
     
