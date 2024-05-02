@@ -3,10 +3,10 @@
 </h1>
 """
 * SOFTWARE BUILD INSTRUCTIONS
-    1) All the code related to the project lies in the main.py python file
-    2) Additionly, you will need drivers for the lcd display, threaded buttons, RTC moudle and servo motor
-    3) main relies on multiple loops that are triggered based on the threaded buttons.
-    4) *Note: Ensure pocketbealue is using python 3.8, as older versions of python run into issues with drivers from lcd display and rtc module
+    1. All the code related to the project lies in the main.py python file
+    2. Additionly, you will need drivers for the lcd display, threaded buttons, RTC moudle and servo motor
+    3. main relies on multiple loops that are triggered based on the threaded buttons.
+    4. Note: Ensure pocketbealue is using python 3.8, as older versions of python run into issues with drivers from lcd display and rtc module
     
 * SOFTWARE OPERATION INSTRUCTIONS:
     1. Run main.py, which will call on the other drivers and start running the program
