@@ -15,6 +15,6 @@
     2. Utilize buttons as shown on the lcd display to navigate between setting time and winding watch
     3. Note: lcd display may need to be adjusted with potentiometer to read text displayed
  
-  LINK TO HACKSTER IO: 
+  LINK TO HACKSTER IO: https://www.hackster.io/im33/engi-301-diy-watch-winder-5e84ca
 
 """
