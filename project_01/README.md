@@ -2,7 +2,9 @@
   Automatic Watch Winder : README for Project 01
 </h1>
 """
-* SOFTWARE BUILD INSTRUCTIONS
+* Project compelted for ENGI 301
+
+* SOFTWARE BUILD INSTRUCTIONS:
     1. All the code related to the project lies in the main.py python file
     2. Additionly, you will need drivers for the lcd display, threaded buttons, RTC moudle and servo motor
     3. main relies on multiple loops that are triggered based on the threaded buttons.
@@ -14,6 +16,5 @@
     3. Note: lcd display may need to be adjusted with potentiometer to read text displayed
  
   LINK TO HACKSTER IO: 
-------------------------------------------------------------------------
 
 """
