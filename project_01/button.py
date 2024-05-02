@@ -3,7 +3,7 @@
 Button Driver
 --------------------------------------------------------------------------
 License:   
-Copyright 2021-2024 - <Your Name>
+Copyright 2021-2024 - Ibrahim Muzammil
 
 Redistribution and use in source and binary forms, with or without 
 modification, are permitted provided that the following conditions are met:
@@ -302,7 +302,7 @@ if __name__ == '__main__':
     print("Button Test")
 
     # Create instantiation of the button
-    button = Button("P2_2")
+    button = Button("P2_35")
     
     # Create functions to test the callback functions
     def pressed():
